@@ -1,0 +1,131 @@
+.op{
+    width: 600px;
+    min-height: 300px;
+    margin: auto;
+    background-color: rgb(241, 231, 231);
+    background-image: url('/bear.png');
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: gray;
+}
+
+.query{
+    display: flex;
+    flex-direction: column;
+}
+
+.face{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: lightseagreen;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.face button{
+    outline: none;
+    width: 80px;
+    height: 30px;
+    background-color: rgb(54, 129, 190);
+    color: white;
+    font-size: 16px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.query .result{
+    background-color: white;
+    margin: 10px;
+    border: 1px gray solid;
+    border-radius: 20px;
+    overflow: scroll;
+}
+
+.dataitem-root{
+    display: flex;
+    flex-direction: column;
+}
+
+.dataitem{
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px gray solid;
+}
+
+.dataitem p{
+    flex: 1;
+}
+
+.datatitle {
+    background-color: lightsalmon;
+    color: black;
+    font-weight: bold;
+}
+
+.modify-root{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgray;
+    margin: 0 5px;
+    padding: 0 15px 10px 15px;
+    height: 150px;
+}
+
+.modify-title{
+    padding-top: 10px;
+    color: gray;
+    font-weight: bold;
+    flex: 1;
+}
+
+.modify{
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
+
+.modify div{
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.modify-input{
+    font-size: 16px;
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: blue;
+}
+
+.can-modify::placeholder{
+    color: red;
+    opacity: 0.5; 
+    padding: 0 2px;
+}
+
+.modify-btn{
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+
+.modify-btn button{
+    width: 80px;
+    height: 30px;
+    font-size: 14px;
+    outline: none;
+    background-color: lightseagreen;
+    color: white;
+}

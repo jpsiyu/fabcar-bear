@@ -1,0 +1,31 @@
+.card{
+    position: relative;
+    margin: auto;
+    width: 400px;
+    height: 200px;
+    background-color: rgb(241, 231, 231);
+}
+
+.highlight{
+    color: orange;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.card-btn{
+    outline: none;
+    background-color: lightcoral;
+    color: white;
+    width: 120px;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.btn-green{
+    background-color: green;
+}
+
+.shadow{
+    box-shadow: 3px 3px 1px rgba(43, 36, 36, 0.5);
+}

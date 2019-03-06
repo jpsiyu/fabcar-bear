@@ -1,0 +1,29 @@
+{
+  "name": "blockchain-book",
+  "version": "1.0.0",
+  "main": "index.js",
+  "port": "3000",
+  "scripts": {
+    "start": "nodemon server/app.js -w server",
+    "parcel-watch": "parcel watch ./client/public/index.html",
+    "parcel-build": "parcel build ./client/public/index.html",
+    "parcel-clear": "rm -rf .cache dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "fabric-ca-client": "^1.4.0",
+    "fabric-network": "^1.4.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  }
+}

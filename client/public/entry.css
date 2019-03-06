@@ -1,0 +1,52 @@
+body{
+    background-color: gray;
+}
+
+.entry{
+    padding: 100px 0;
+}
+
+.e-admin{
+    font-size: 30px;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: carddown;
+    animation-duration: 1s;
+}
+@keyframes carddown{
+    from{
+        top: -100px;
+        opacity: 0;
+    }
+
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
+
+.e-user{
+    font-size: 30px;
+    color: gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation-name: cardup;
+    animation-duration: 1s;
+}
+
+@keyframes cardup{
+    from{
+        top: 100px;
+        opacity: 0;
+    }
+
+    to{
+        top: 0;
+        opacity: 1;
+    }
+}
