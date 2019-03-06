@@ -13,19 +13,6 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation-name: carddown;
-    animation-duration: 1s;
-}
-@keyframes carddown{
-    from{
-        top: -100px;
-        opacity: 0;
-    }
-
-    to{
-        top: 0;
-        opacity: 1;
-    }
 }
 
 .e-user{
@@ -35,18 +22,4 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation-name: cardup;
-    animation-duration: 1s;
-}
-
-@keyframes cardup{
-    from{
-        top: 100px;
-        opacity: 0;
-    }
-
-    to{
-        top: 0;
-        opacity: 1;
-    }
 }

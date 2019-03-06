@@ -29,3 +29,26 @@
 .shadow{
     box-shadow: 3px 3px 1px rgba(43, 36, 36, 0.5);
 }
+
+.enter{
+    opacity: 0;
+    margin-top: -100px;
+}
+
+.enter-active{
+    margin-top: 0px;
+    opacity: 1;
+    transition: opacity 0.8s ease-in, margin-top 0.8s ease-in;
+}
+
+.exit{
+    margin-top: 0px;
+    opacity: 1;
+
+}
+
+.exit-active{
+    opacity: 0;
+    margin-top: 100px;
+    transition: opacity 0.8s ease-in, margin-top 0.8s ease-in;
+}

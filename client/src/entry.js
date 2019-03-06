@@ -1,7 +1,7 @@
 import React from 'react'
-import axios from 'axios'
 import Operation from './operation'
 import network from './network'
+import { CSSTransition } from 'react-transition-group'
 
 class Entry extends React.Component {
     constructor(props) {
@@ -9,17 +9,25 @@ class Entry extends React.Component {
         this.state = {
             receServer: false,
             adminExists: false,
-            user1Exists: false,
+            userExists: false,
+            in: false,
         }
         this.getBaseInfo()
     }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({ in: true })
+        }, 100)
+    }
+
 
     render() {
         return <div className='entry'>
             {
                 !this.state.receServer ? this.renderWait()
                     : !this.state.adminExists ? this.renderAdmin()
-                        : !this.state.user1Exists ? this.renderUser1()
+                        : !this.state.userExists ? this.renderUser()
                             : <Operation />
             }
         </div>
@@ -30,17 +38,21 @@ class Entry extends React.Component {
     }
 
     renderAdmin() {
-        return <div className='e-admin card shadow'>
-            <p>Genernate <span className='highlight'>Admin</span> cetificate</p>
-            <button className='card-btn' onClick={this.genAdmin.bind(this)}>Gen</button>
-        </div>
+        return <CardAnim in={this.state.in}>
+            <div className='e-admin card shadow'>
+                <p>Genernate <span className='highlight'>Admin</span> cetificate</p>
+                <button className='card-btn' onClick={this.genAdmin.bind(this)}>Gen</button>
+            </div>
+        </CardAnim>
     }
 
-    renderUser1() {
-        return <div className='e-user card shadow'>
-            <p>Genernate <span className='highlight'>User1</span> cetificate</p>
-            <button className='card-btn btn-green' onClick={this.genUser.bind(this)}>Gen</button>
-        </div>
+    renderUser() {
+        return <CardAnim in={this.state.in}>
+            <div className='e-user card shadow'>
+                <p>Genernate <span className='highlight'>User</span> cetificate</p>
+                <button className='card-btn btn-green' onClick={this.genUser.bind(this)}>Gen</button>
+            </div>
+        </CardAnim>
     }
 
     getBaseInfo() {
@@ -49,7 +61,7 @@ class Entry extends React.Component {
             this.setState({
                 receServer: true,
                 adminExists: data.adminExists,
-                user1Exists: data.user1Exists
+                userExists: data.userExists
             })
         }
         network.get('/api/base', handler)
@@ -58,7 +70,10 @@ class Entry extends React.Component {
     genAdmin() {
         const handler = (response) => {
             const result = response.data.result
-            this.setState({ adminExists: result })
+            this.setState({ in: false })
+            setTimeout(() => {
+                this.setState({ adminExists: result, in: true })
+            }, 1000);
         }
         network.put('/api/genadmin', {}, handler)
     }
@@ -66,9 +81,34 @@ class Entry extends React.Component {
     genUser() {
         const handler = (response) => {
             const result = response.data.result
-            this.setState({ user1Exists: result })
+            this.setState({ in: false })
+            setTimeout(() => {
+                this.setState({ userExists: result, in: true })
+            }, 1000);
         }
         network.put('/api/genuser', {}, handler)
+    }
+}
+
+class CardAnim extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return <CSSTransition
+            classNames={{
+                enter: 'enter',
+                enterActive: 'enter-active',
+                exit: 'exit',
+                exitActive: 'exit-active',
+            }}
+            appear={true}
+            in={this.props.in}
+            unmountOnExit
+            timeout={1000}>
+            {this.props.children}
+        </CSSTransition>
     }
 }
 

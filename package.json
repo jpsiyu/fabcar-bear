@@ -21,7 +21,8 @@
     "fabric-ca-client": "^1.4.0",
     "fabric-network": "^1.4.0",
     "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "react-dom": "^16.6.3",
+    "react-transition-group": "^2.6.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.11.0"

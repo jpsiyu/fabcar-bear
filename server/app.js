@@ -11,8 +11,8 @@ app.use(bodyParser.json())
 
 app.get('/api/base', async (req, res) => {
     const adminExists = await app.doorman.userExists('admin')
-    const user1Exists = await app.doorman.userExists('user1')
-    const base = { adminExists, user1Exists }
+    const userExists = await app.doorman.userExists('user1')
+    const base = { adminExists, userExists }
     res.send(JSON.stringify(base))
 })
 
